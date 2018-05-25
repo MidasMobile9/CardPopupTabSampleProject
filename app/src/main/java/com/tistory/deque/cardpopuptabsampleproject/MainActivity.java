@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.tistory.deque.cardpopuptabsampleproject.CardView.CardViewActivity;
+import com.tistory.deque.cardpopuptabsampleproject.PopupMenu.PopupMenuActivity;
 import com.tistory.deque.cardpopuptabsampleproject.TabLayoutViewPager.TabLayoutViewPagerActivity;
 
 import butterknife.ButterKnife;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.buttonTabActivity, R.id.buttonCardViewActivity})
+    @OnClick({R.id.buttonTabActivity, R.id.buttonCardViewActivity, R.id.buttonPopupActivity})
     public void onButtonTabActivityClick(View view){
         Intent intent = null;
         switch (view.getId()){
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.buttonCardViewActivity:
                 intent = new Intent(this, CardViewActivity.class);
+                break;
+            case R.id.buttonPopupActivity:
+                intent = new Intent(this, PopupMenuActivity.class);
                 break;
         }
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

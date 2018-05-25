@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".TabLayoutViewPager.TabActivity" />
         <activity android:name=".TabLayoutViewPager.TabLayoutViewPagerActivity" />
-        <activity android:name=".CardView.CardViewActivity"></activity>
+        <activity android:name=".CardView.CardViewActivity" />
+        <activity android:name=".PopupMenu.PopupMenuActivity"></activity>
     </application>
 
 </manifest>

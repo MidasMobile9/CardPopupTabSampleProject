@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/popupMenu1"
+        android:title="popupMenu1" >
+        <menu>
+            <item android:title="apple"/>
+            <item android:title="babana"/>
+            <item android:title="remon"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/popupMenu2"
+        android:title="popupMenu1" >
+    </item>
+    <item
+        android:id="@+id/popupMenu3"
+        android:title="popupMenu1" />
+</menu>

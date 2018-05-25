@@ -1,5 +1,6 @@
 package com.tistory.deque.cardpopuptabsampleproject.CardView;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -13,12 +14,15 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class CardViewActivity extends AppCompatActivity {
     @BindView(R.id.cardViewRecyclerView)
     RecyclerView cardViewRecyclerView;
 
-    public ArrayList<CardContents> cardContents = new ArrayList<CardContents>();
+    public ArrayList<CardContents> cardContents; // 리사이클러 뷰에 적용할 데이터셋
+    public ArrayList<Drawable> cats;
+
     private LinearLayoutManager mLinearLayoutManager;
     private CardViewAdapter cardViewAdapter;
 
@@ -28,15 +32,24 @@ public class CardViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_card_view);
         ButterKnife.bind(this);
 
-        setCardContents();
+
         setRecyclerView();
 
-        cardViewAdapter.notifyDataSetChanged();
+        //고양이 사진들을 미리 초기화
+        cats = new ArrayList<>();
+        cats.add(getResources().getDrawable(R.drawable.cat_3008775_1280));
+        cats.add(getResources().getDrawable(R.drawable.cat_3422439_1280));
+        cats.add(getResources().getDrawable(R.drawable.cat_3423417_1280));
+        cats.add(getResources().getDrawable(R.drawable.cat_3413505_1280));
     }
 
     private void setRecyclerView(){
+        //리사이클러뷰와 카드뷰를 세팅함
+        cardContents = new ArrayList<>();
+
         mLinearLayoutManager = new LinearLayoutManager(this);
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
         cardViewRecyclerView.setHasFixedSize(true);
         cardViewRecyclerView.setLayoutManager(mLinearLayoutManager);
         cardViewRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -44,9 +57,28 @@ public class CardViewActivity extends AppCompatActivity {
         cardViewAdapter = new CardViewAdapter(cardContents);
         cardViewRecyclerView.setAdapter(cardViewAdapter);
     }
-    private void setCardContents(){
-        cardContents.add(new CardContents("TITLE_1", "CONTENTS_1", getResources().getDrawable(R.drawable.cat_3008775_1280)));
-        cardContents.add(new CardContents("TITLE_2", "CONTENTS_2", getResources().getDrawable(R.drawable.cat_3422439_1280)));
-        cardContents.add(new CardContents("TITLE_3", "CONTENTS_3", getResources().getDrawable(R.drawable.cat_3423417_1280)));
+
+    @OnClick(R.id.buttonCardAdd)
+    public void cardAdd(){
+        //card를 하나 추가
+        //고양이 한마리를 순서대로 띄운다
+        String title = "TITLE " + cardContents.size() + 1;
+        String contents = "CONTENTS " + cardContents.size() + 1;
+
+        cardContents.add(new CardContents(title, contents, cats.get(cardContents.size() % 4)));
+
+        cardViewAdapter.notifyDataSetChanged();
     }
+
+    @OnClick(R.id.buttonCardRemove)
+    public void cardRemove(){
+        //index가 0인 카드를 지운다
+        //cardViewAdapter.notifyItemRemoved()는 인덱스로 들어온 인자가 지워지면
+        //자연스럽게 삭제해주는 애니메이션이 보임
+        if(cardContents.size() <= 0) return;
+
+        cardContents.remove(0);
+        cardViewAdapter.notifyItemRemoved(0);
+    }
+
 }

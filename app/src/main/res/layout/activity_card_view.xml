@@ -7,6 +7,17 @@
     android:orientation="vertical"
     tools:context=".CardView.CardViewActivity">
 
+    <Button
+        android:id="@+id/buttonCardAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="카드 추가" />
+    <Button
+        android:id="@+id/buttonCardRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="카드 삭제" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cardViewRecyclerView"
         android:layout_width="match_parent"
