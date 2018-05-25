@@ -62,8 +62,8 @@ public class CardViewActivity extends AppCompatActivity {
     public void cardAdd(){
         //card를 하나 추가
         //고양이 한마리를 순서대로 띄운다
-        String title = "TITLE " + cardContents.size() + 1;
-        String contents = "CONTENTS " + cardContents.size() + 1;
+        String title = "TITLE " + cardContents.size();
+        String contents = "CONTENTS " + cardContents.size();
 
         cardContents.add(new CardContents(title, contents, cats.get(cardContents.size() % 4)));
 
