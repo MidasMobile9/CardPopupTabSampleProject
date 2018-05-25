@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TabLayoutViewPager.TabActivity" />
+        <activity android:name=".TabLayoutViewPager.TabLayoutViewPagerActivity"></activity>
     </application>
 
 </manifest>
