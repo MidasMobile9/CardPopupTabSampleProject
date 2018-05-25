@@ -5,17 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".CardView.CardViewActivity">
 
-
-    <Button
-        android:id="@+id/buttonCardViewActivity"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cardViewRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="카드뷰" />
-    <Button
-        android:id="@+id/buttonTabActivity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="탭레이아웃, 뷰페이저" />
+        android:layout_height="match_parent" />
 </LinearLayout>

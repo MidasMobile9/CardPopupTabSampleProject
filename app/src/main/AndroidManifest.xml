@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".TabLayoutViewPager.TabActivity" />
-        <activity android:name=".TabLayoutViewPager.TabLayoutViewPagerActivity"></activity>
+        <activity android:name=".TabLayoutViewPager.TabLayoutViewPagerActivity" />
+        <activity android:name=".CardView.CardViewActivity"></activity>
     </application>
 
 </manifest>
